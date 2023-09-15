@@ -132,7 +132,7 @@ void StaticLinkList<Elem>::clearSpace()
     if (space_exist)
     {
         delete[] space;
-        space = NULL;
+        space = nullptr;
         space_exist = false;
     }
 }

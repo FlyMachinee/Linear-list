@@ -6,22 +6,28 @@ SeqList<Elem>::SeqList(int len)
 {
     used_len = 0;
     malloc_len = (len >= 0 ? len : 0);
-    head_ptr = (len >= 0 ? new Elem[malloc_len] : NULL);
+    head_ptr = (len >= 0 ? new Elem[malloc_len] : nullptr);
 }
 
 //析构函数
 template <typename Elem>
 SeqList<Elem>::~SeqList()
 {
-    if (head_ptr != NULL)
+    if (head_ptr != nullptr)
+    {
         delete[] head_ptr;
+        head_ptr = nullptr;
+    }
 }
 
 //返回p位置对应元素的引用
 template <typename Elem>
 Elem& SeqList<Elem>::at(int p) const
 {
-    return head_ptr[p];
+    if (p >= 0 && p < used_len - 1)
+        return head_ptr[p];
+    else
+        throw std::out_of_range
 }
 
 //在顺序表中插入元素
@@ -41,6 +47,8 @@ void SeqList<Elem>::insert(const Elem& obj, int p)
 
         used_len++;
     }
+    else
+        throw std::out_of_range
 }
 
 template <typename Elem>
@@ -54,6 +62,8 @@ void SeqList<Elem>::remove(int p)
         
         used_len--;
     }
+    else
+        throw std::out_of_range
 }
 
 //返回指定位置的前驱

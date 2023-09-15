@@ -26,13 +26,15 @@ void Stack<Elem>::push(const Elem& obj)
 template <typename Elem>
 void Stack<Elem>::pop()
 {
-    arr->remove(arr->prior(arr->end()));
+    if (! arr->empty())
+        arr->remove(arr->prior(arr->end()));
 }
 
 // 栈顶元素
 template <typename Elem>
 const Elem& Stack<Elem>::top() const
 {
+    // 空栈查看栈顶是未定义行为
     return arr->at(arr->prior(arr->end()));
 }
 

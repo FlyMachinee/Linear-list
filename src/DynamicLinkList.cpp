@@ -45,7 +45,7 @@ DynamicNode<Elem>* DynamicLinkList<Elem>::begin() const
 template <typename Elem>
 DynamicNode<Elem>* DynamicLinkList<Elem>::null() const
 {
-    return NULL;
+    return nullptr;
 }
 
 //申请节点空间，返回节点的地址
