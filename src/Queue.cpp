@@ -20,7 +20,7 @@ Queue<Elem>::~Queue()
 template <typename Elem>
 void Queue<Elem>::push(const Elem& obj)
 {
-    list->insert(obj, end);
+    list->push_back(obj);
     end = list->_next(end);
 }
 
