@@ -27,7 +27,7 @@ Elem& SeqList<Elem>::at(int p) const
     if (p >= 0 && p < used_len - 1)
         return head_ptr[p];
     else
-        throw std::out_of_range
+        throw std::out_of_range("Invalid index");
 }
 
 //在顺序表中插入元素
@@ -48,7 +48,7 @@ void SeqList<Elem>::insert(const Elem& obj, int p)
         used_len++;
     }
     else
-        throw std::out_of_range
+        throw std::out_of_range("Invalid index");
 }
 
 template <typename Elem>
@@ -63,7 +63,7 @@ void SeqList<Elem>::remove(int p)
         used_len--;
     }
     else
-        throw std::out_of_range
+        throw std::out_of_range("Invalid index");
 }
 
 //返回指定位置的前驱
