@@ -24,7 +24,7 @@ SeqList<Elem>::~SeqList()
 template <typename Elem>
 Elem& SeqList<Elem>::at(int p) const
 {
-    if (p >= 0 && p < used_len - 1)
+    if (p >= 0 && p < used_len)
         return head_ptr[p];
     else
         throw std::out_of_range("Invalid index");
